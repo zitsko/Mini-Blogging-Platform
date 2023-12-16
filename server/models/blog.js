@@ -1,7 +1,7 @@
 const db = require('../config/connection.js');
 const mongoose = require('mongoose');
 
-const Blogs = mongoose.model("Blogs", {
+const Blog = mongoose.model("Blogs", {
     title: String,
     text: String,
     image: String,
@@ -15,4 +15,4 @@ const Blogs = mongoose.model("Blogs", {
     }
   });
 
-module.exports = Blogs;
+module.exports = Blog;

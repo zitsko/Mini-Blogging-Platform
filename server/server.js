@@ -11,13 +11,11 @@ app.use(
   })
 );
 
-
-
 const userRouter = require("./routers/userRouter.js");
-//const linkRouter = require("./routers/linkRouter.js");
+const blogRouter = require("./routers/blogRouter.js");
 
 app.use("/user", userRouter);
-// app.use("/links", linkRouter);
+app.use("/blogs", blogRouter);
 
 const PORT = 3636;
 app.listen(PORT, () => {
