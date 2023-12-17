@@ -1,7 +1,7 @@
 import React from "react";
 import Navbar from "./Navbar";
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate,Link } from "react-router-dom";
 import axios from "axios";
 import backendUrl from "../configBackend";
 import BlogItem from "./BlogItem";
@@ -57,7 +57,16 @@ function BlogList() {
     <div className="App">
       <Navbar />
       <h1>Welcome, {user.email}! Your Blogs:</h1>
-      <BlogItem blogs={blogs} />
+      {blogs.map((blog) => (
+        <div key={blog._id} className="blog-item">
+        <h2><Link to = {`/blog/${blog._id}`}>{blog.title}</Link></h2>
+        {blog.image && <img src={blog.image} alt="Blog" />}
+        <p>{blog.text}</p>
+        <p>By: {blog.author.email}</p>
+        <p>Created at: {new Date(blog.createdAt).toLocaleString()}</p>
+      </div>
+      ))}
+      {/* <BlogItem blogs={blogs} /> */}
     </div>
   );
 }

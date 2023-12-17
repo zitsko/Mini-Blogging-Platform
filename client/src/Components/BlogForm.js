@@ -35,9 +35,9 @@ function BlogForm() {
     _id: "",
     email: "",
   });
-  const [title, setTitle] = useState('');
-  const [text, setText] = useState('');
-  const [image, setImage] = useState('');
+  const [title, setTitle] = useState("");
+  const [text, setText] = useState("");
+  const [image, setImage] = useState("");
 
   //Create Blog
   const handleCreateBlog = async () => {
@@ -48,13 +48,10 @@ function BlogForm() {
         image,
         author: user._id, // Assuming user._id is available
       };
-
       const response = await axios.post(`${backendUrl}/blogs`, newBlog);
-      navigate('/blogs');
-      console.log('Blog created:', response.data);
-
+      navigate("/blogs");
     } catch (error) {
-      console.error('Error creating blog:', error);
+      console.error("Error creating blog:", error);
     }
   };
 
@@ -63,18 +60,26 @@ function BlogForm() {
       <Navbar />
       <h1>Hello, BlogForm!</h1>
       <div className="blog-form-container">
-      <h2>Create a New Blog</h2>
-      <label>Title:</label>
-      <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} />
+        <h2>Create a New Blog</h2>
+        <label>Title:</label>
+        <input
+          type="text"
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+        />
 
-      <label>Text:</label>
-      <textarea value={text} onChange={(e) => setText(e.target.value)} />
+        <label>Text:</label>
+        <textarea value={text} onChange={(e) => setText(e.target.value)} />
 
-      <label>Image URL:</label>
-      <input type="text" value={image} onChange={(e) => setImage(e.target.value)} />
+        <label>Image URL:</label>
+        <input
+          type="text"
+          value={image}
+          onChange={(e) => setImage(e.target.value)}
+        />
 
-      <button onClick={handleCreateBlog}>Create Blog</button>
-    </div>
+        <button onClick={handleCreateBlog}>Create Blog</button>
+      </div>
     </div>
   );
 }
