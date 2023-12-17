@@ -53,6 +53,24 @@ function BlogList() {
     }
   };
 
+  const handleDelete = async (blogId, authorId) => {
+    const shouldDelete = window.confirm('Are you sure you want to delete this blog?');
+
+    if (shouldDelete) {
+      try {
+        // Check if the logged-in user is the author of the blog
+        if (authorId === user._id) {
+          await axios.delete(`${backendUrl}/blogs/${blogId}`);
+          setBlogs((prevBlogs) => prevBlogs.filter((blog) => blog._id !== blogId));
+        } else {
+          alert('You can only delete your own blogs.');
+        }
+      } catch (error) {
+        console.error('Error deleting blog:', error);
+      }
+    }
+  };
+
   return (
     <div className="App">
       <Navbar />
@@ -64,9 +82,11 @@ function BlogList() {
         <p>{blog.text}</p>
         <p>By: {blog.author.email}</p>
         <p>Created at: {new Date(blog.createdAt).toLocaleString()}</p>
+        {user._id === blog.author._id && (
+            <button onClick={() => handleDelete(blog._id)}>Delete</button>
+          )}
       </div>
       ))}
-      {/* <BlogItem blogs={blogs} /> */}
     </div>
   );
 }

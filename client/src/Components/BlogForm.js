@@ -46,14 +46,23 @@ function BlogForm() {
         title,
         text,
         image,
-        author: user._id, // Assuming user._id is available
+        author: user._id,
       };
-      const response = await axios.post(`${backendUrl}/blogs`, newBlog);
-      navigate("/blogs");
+  
+      // Show a confirmation dialog
+      const confirmed = window.confirm("Do you want to publish this blog?");
+  
+      if (confirmed) {
+        const response = await axios.post(`${backendUrl}/blogs`, newBlog);
+        navigate("/blogs");
+      } else {
+        return;
+      }
     } catch (error) {
       console.error("Error creating blog:", error);
     }
   };
+  
 
   return (
     <div className="App">
