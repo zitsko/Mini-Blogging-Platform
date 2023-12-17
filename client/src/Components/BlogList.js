@@ -4,12 +4,11 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import backendUrl from "../configBackend";
-import BlogItem from './BlogItem';
+import BlogItem from "./BlogItem";
 
 function BlogList() {
-
-    //-------- Use Effect-----------
-useEffect(() => {
+  //-------- Use Effect-----------
+  useEffect(() => {
     if (localStorage.getItem("token")) {
       axios
         .post(`${backendUrl}/user/verify`, {
@@ -18,7 +17,7 @@ useEffect(() => {
         .then(({ data }) => {
           if (data.userData._id) {
             setUser(data.userData);
-            getAllBlogs(); 
+            getAllBlogs();
           } else {
             navigate("/");
           }
@@ -31,35 +30,36 @@ useEffect(() => {
       navigate("/");
     }
   }, []);
-      //-------- State Variables-----------
-      const [blogs,setBlogs] = useState([]);
-      const navigate = useNavigate();
-      const [user, setUser] = useState({
-        _id: "",
-        email: "",
-      });
 
-      //get all blogs
-      const getAllBlogs = () =>{
-        try{
-            axios
-            .get(`${backendUrl}/blogs`)
-            .then((res) => {
-                setBlogs(res.data);
-            })
-            .catch((err)=> console.log(err));
-        } catch(error){
-            console.log(error)
-        }
-      }
-    
-    return (
-        <div className="App">
-          <Navbar />
-          <h1>Welcome, {user.email}! Your Blogs:</h1>
-          <BlogItem blogs={blogs} />
-      </div>
-    );
-  }
-  
-  export default BlogList;
+  //-------- State Variables-----------
+  const [blogs, setBlogs] = useState([]);
+  const navigate = useNavigate();
+  const [user, setUser] = useState({
+    _id: "",
+    email: "",
+  });
+
+  //get all blogs
+  const getAllBlogs = () => {
+    try {
+      axios
+        .get(`${backendUrl}/blogs`)
+        .then((res) => {
+          setBlogs(res.data);
+        })
+        .catch((err) => console.log(err));
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  return (
+    <div className="App">
+      <Navbar />
+      <h1>Welcome, {user.email}! Your Blogs:</h1>
+      <BlogItem blogs={blogs} />
+    </div>
+  );
+}
+
+export default BlogList;
