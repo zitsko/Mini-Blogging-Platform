@@ -11,3 +11,20 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+ul{
+  list-style-type: none;
+}
+
+::placeholder{
+  color: #6c757d;
+  font-size: 1rem;
+}
+
+/*----- Layouts ------*/
+.app-layout{
+  max-width: 60rem;
+  margin: 0 auto;
+  padding: 1.25rem;
+  margin-top: 2rem;
+}

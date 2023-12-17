@@ -6,7 +6,6 @@ import axios from "axios";
 import backendUrl from "../configBackend";
 
 function BlogForm() {
-
   //-------- Use Effect-----------
   useEffect(() => {
     if (localStorage.getItem("token")) {
@@ -30,8 +29,6 @@ function BlogForm() {
     }
   }, []);
 
-
-
   //-------- State Variables-----------
   const navigate = useNavigate();
   const [user, setUser] = useState({
@@ -42,8 +39,6 @@ function BlogForm() {
   const [text, setText] = useState("");
   const [image, setImage] = useState("");
 
-   
-   
   //Create Blog
   const handleCreateBlog = async () => {
     try {
@@ -53,10 +48,10 @@ function BlogForm() {
         image,
         author: user._id,
       };
-  
+
       // Show a confirmation dialog
       const confirmed = window.confirm("Do you want to publish this blog?");
-  
+
       if (confirmed) {
         const response = await axios.post(`${backendUrl}/blogs`, newBlog);
         navigate("/blogs");
@@ -67,32 +62,38 @@ function BlogForm() {
       console.error("Error creating blog:", error);
     }
   };
-  
 
   return (
-    <div className="App">
+    <div className="app-layout">
       <Navbar />
-      <h1>Hello, BlogForm!</h1>
       <div className="blog-form-container">
         <h2>Create a New Blog</h2>
-        <label>Title:</label>
+        
         <input
           type="text"
           value={title}
+          placeholder="Enter Blog Title"
+          className="blog-form-input"
           onChange={(e) => setTitle(e.target.value)}
         />
 
-        <label>Text:</label>
-        <textarea value={text} onChange={(e) => setText(e.target.value)} />
+        <textarea
+          value={text}
+          placeholder="Enter Blog Content"
+          className="blog-form-input"
+          onChange={(e) => setText(e.target.value)}
+        />
 
-        <label>Image URL:</label>
         <input
           type="text"
           value={image}
+          placeholder="Enter Image URL"
+          className="blog-form-input"
           onChange={(e) => setImage(e.target.value)}
         />
 
-        <button onClick={handleCreateBlog}>Create Blog
+        <button onClick={handleCreateBlog} className="btn btn-primary">
+          Create Blog
         </button>
       </div>
     </div>

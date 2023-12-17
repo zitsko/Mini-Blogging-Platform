@@ -82,7 +82,7 @@ function BlogList() {
 
 
   return (
-    <div className="App">
+    <div className="app-layout">
       <Navbar />
       <h1>Welcome, {user.email}! Your Blogs:</h1>
       {blogs.map((blog) => (
