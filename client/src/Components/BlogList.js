@@ -53,18 +53,13 @@ function BlogList() {
     }
   };
 
-  const handleDelete = async (blogId, authorId) => {
+  const handleDelete = async (blogId) => {
     const shouldDelete = window.confirm('Are you sure you want to delete this blog?');
-
+  
     if (shouldDelete) {
       try {
-        // Check if the logged-in user is the author of the blog
-        if (authorId === user._id) {
-          await axios.delete(`${backendUrl}/blogs/${blogId}`);
-          setBlogs((prevBlogs) => prevBlogs.filter((blog) => blog._id !== blogId));
-        } else {
-          alert('You can only delete your own blogs.');
-        }
+        await axios.delete(`${backendUrl}/blogs/${blogId}`);
+        setBlogs((prevBlogs) => prevBlogs.filter((blog) => blog._id !== blogId));
       } catch (error) {
         console.error('Error deleting blog:', error);
       }
