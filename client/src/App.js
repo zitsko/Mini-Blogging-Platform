@@ -4,6 +4,7 @@ import Signup from "./Components/Signup";
 import BlogForm from "./Components/BlogForm";
 import BlogList from "./Components/BlogList";
 import BlogItem from "./Components/BlogItem";
+import EditBlogForm from "./Components/EditBlogForm";
 
 
 
@@ -17,7 +18,8 @@ function App() {
             <Route path="/signup" element={<Signup />} />
             <Route path="/form" element={<BlogForm />} />
             <Route path="/blogs" element={<BlogList />} />    
-            <Route path="/blog/:id" element={<BlogItem />} />    
+            <Route path="/blog/:id" element={<BlogItem />} />  
+            <Route path="/edit-blog/:id" element={<EditBlogForm />} />  
           </Routes>
         </div>
       </Router>

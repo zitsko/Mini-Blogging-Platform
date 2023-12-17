@@ -6,6 +6,7 @@ import axios from "axios";
 import backendUrl from "../configBackend";
 
 function BlogForm() {
+
   //-------- Use Effect-----------
   useEffect(() => {
     if (localStorage.getItem("token")) {
@@ -29,6 +30,8 @@ function BlogForm() {
     }
   }, []);
 
+
+
   //-------- State Variables-----------
   const navigate = useNavigate();
   const [user, setUser] = useState({
@@ -39,6 +42,8 @@ function BlogForm() {
   const [text, setText] = useState("");
   const [image, setImage] = useState("");
 
+   
+   
   //Create Blog
   const handleCreateBlog = async () => {
     try {
@@ -87,7 +92,8 @@ function BlogForm() {
           onChange={(e) => setImage(e.target.value)}
         />
 
-        <button onClick={handleCreateBlog}>Create Blog</button>
+        <button onClick={handleCreateBlog}>Create Blog
+        </button>
       </div>
     </div>
   );
