@@ -85,8 +85,8 @@ function BlogList() {
   return (
     <div className="app-layout">
       <Navbar />
-      <h1>Welcome, {user.email}! Your Blogs:</h1>
-      
+      <h1>Welcome, {user.email}! </h1>
+
       <div className="blog-list">
       {blogs.map((blog) => (
         <div key={blog._id} className="blog-item">
