@@ -1,32 +1,30 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
 /*------ Variables ------ */
 :root {
-    --fs-text: 1.1rem;
-    --fs-title: 1.5rem;
-    --main-bg-color: #f4f4f4;
-    --dark-color: #212427;
-    --white-color: #ffffff;
-    --danger-color: #e71c1c;
-    --primary-color: #2e5ca7ec;
-    --hover-primary-color: #1954b2ec;
-    
-  } 
-
+  --fs-text: 1.1rem;
+  --fs-title: 1.5rem;
+  --main-bg-color: #f4f4f4;
+  --dark-color: #212427;
+  --white-color: #ffffff;
+  --danger-color: #e71c1c;
+  --primary-color: #2e5ca7ec;
+  --hover-primary-color: #1954b2ec;
+}
 
 /*----- Layouts ------*/
-.app-layout{
+.app-layout {
   max-width: 60rem;
   margin: 0 auto;
   padding: 1.25rem;
@@ -34,11 +32,11 @@ code {
 }
 
 /*----- Other -------*/
-ul{
+ul {
   list-style-type: none;
 }
 
-::placeholder{
+::placeholder {
   color: #6c757d;
   font-size: 1rem;
 }

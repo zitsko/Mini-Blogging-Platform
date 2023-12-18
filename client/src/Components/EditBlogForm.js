@@ -1,7 +1,7 @@
 // EditBlogForm.js
 import React, { useEffect, useState } from "react";
 import Navbar from "./Navbar";
-import { useNavigate, useParams} from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import backendUrl from "../configBackend";
 
@@ -12,9 +12,9 @@ const EditBlogForm = () => {
     _id: "",
     email: "",
   });
-  const [title, setTitle] = useState('');
-  const [text, setText] = useState('');
-  const [image, setImage] = useState('');
+  const [title, setTitle] = useState("");
+  const [text, setText] = useState("");
+  const [image, setImage] = useState("");
 
   // Use useEffect to fetch existing blog data based on the blog ID
   useEffect(() => {
@@ -27,17 +27,11 @@ const EditBlogForm = () => {
           if (data.userData._id) {
             setUser(data.userData);
             // Fetch existing blog data based on the ID
-            console.log('Blog ID:', id);
-            axios.get(`${backendUrl}/blogs/blog/${id}`)
+            console.log("Blog ID:", id);
+            axios
+              .get(`${backendUrl}/blogs/blog/${id}`)
               .then((response) => {
                 const existingBlogData = response.data;
-                console.log('Existing Blog Data:', existingBlogData);
-
-                // Ensure that the following logs show the expected values
-                console.log('Title:', existingBlogData.title);
-                console.log('Text:', existingBlogData.text);
-                console.log('Image:', existingBlogData.image);
-
                 setTitle(existingBlogData.title);
                 setText(existingBlogData.text);
                 setImage(existingBlogData.image);
@@ -69,30 +63,48 @@ const EditBlogForm = () => {
         author: user._id,
       };
 
-      const response = await axios.put(`${backendUrl}/blogs/${id}`, updatedBlog);
-      navigate('/blogs');
-      console.log('Blog updated:', response.data);
+      const response = await axios.put(
+        `${backendUrl}/blogs/${id}`,
+        updatedBlog
+      );
+      navigate("/blogs");
+      console.log("Blog updated:", response.data);
     } catch (error) {
-      console.error('Error updating blog:', error);
+      console.error("Error updating blog:", error);
     }
   };
 
   return (
-    <div className="App">
+    <div className="app-layout">
       <Navbar />
-      <h1>Hello, EditBlogForm!</h1>
       <div className="blog-form-container">
-        <h2>Edit Blog</h2>
-        <label>Title:</label>
-        <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} />
+        <h2 className="text-center mt-2" >Edit Blog</h2>
+        <label className="text-center">Title</label>
+        <input
+          type="text"
+          value={title}
+          className="blog-form-input"
+          onChange={(e) => setTitle(e.target.value)}
+        />
 
-        <label>Text:</label>
-        <textarea value={text} onChange={(e) => setText(e.target.value)} />
+        <label className="text-center">Text</label>
+        <textarea
+          value={text}
+          className="blog-form-input"
+          onChange={(e) => setText(e.target.value)}
+        />
 
-        <label>Image URL:</label>
-        <input type="text" value={image} onChange={(e) => setImage(e.target.value)} />
+        <label className="text-center">Image URL</label>
+        <input
+          type="text"
+          value={image}
+          className="blog-form-input"
+          onChange={(e) => setImage(e.target.value)}
+        />
 
-        <button onClick={handleEditBlog}>Save Changes</button>
+        <button onClick={handleEditBlog} className="btn btn-primary">
+          Save Changes
+        </button>
       </div>
     </div>
   );

@@ -4,6 +4,8 @@ import "bootstrap/dist/css/bootstrap.css";
 import './Styles/Base.css';
 import './Styles/BlogForm.css';
 import './Styles/Signup-Login.css'
+import './Styles/BlogList.css'
+
 
 import App from './App';
 

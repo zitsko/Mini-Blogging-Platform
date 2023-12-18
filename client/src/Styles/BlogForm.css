@@ -1,12 +1,12 @@
-.blog-form-container{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 1.5rem;
+.blog-form-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.5rem;
 }
 
-.blog-form-input{
-    padding: 1.5rem;
+.blog-form-input {
+  padding: 1.5rem;
   border: none;
   border-radius: 0.625rem;
   box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1);

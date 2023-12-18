@@ -86,6 +86,8 @@ function BlogList() {
     <div className="app-layout">
       <Navbar />
       <h1>Welcome, {user.email}! Your Blogs:</h1>
+      
+      <div className="blog-list">
       {blogs.map((blog) => (
         <div key={blog._id} className="blog-item">
           <h2>
@@ -97,7 +99,7 @@ function BlogList() {
           <p>Created at: {new Date(blog.createdAt).toLocaleString()}</p>
 
           {user._id === blog.author._id && (
-            <div className="d-flex gap-2"> {/* Bootstrap class to add space between buttons */}
+            <div className="d-flex gap-2"> 
             <Button variant="primary" onClick={() => handleEdit(blog._id)}>
               Edit
             </Button>
@@ -109,6 +111,7 @@ function BlogList() {
         </div>
         
       ))}
+    </div>
     </div>
   );
 }

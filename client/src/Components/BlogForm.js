@@ -64,10 +64,10 @@ function BlogForm() {
   };
 
   return (
-    <div className="app-layout">
+    <div className = "app-layout">
       <Navbar />
       <div className="blog-form-container">
-        <h2>Create a New Blog</h2>
+        <h2 className="text-center mt-2">Create a New Blog</h2>
         
         <input
           type="text"
