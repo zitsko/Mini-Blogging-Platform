@@ -52,10 +52,10 @@ function Signup() {
 
   return (
     <div className="signup-login-container app-layout">
-      <h1 className="app-title ">Welcome to BlogBridges</h1>
+      <h1 className="app-title ">Welcome to Mini Blogging Platform</h1>
       <p className="headline-text mt-4">
         Whether you're an aspiring writer, seasoned blogger, or someone with a
-        story to tell, BlogBridges is your gateway to a vibrant
+        story to tell, Mini Blogging Platform is your gateway to a vibrant
         community of bloggers all around the world! Signup to learn more!
       </p>
       <div className="input-button-container">
