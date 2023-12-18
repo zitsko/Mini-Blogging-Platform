@@ -29,7 +29,7 @@ function Login() {
     <div className="signup-login-container app-layout">
       
         <h1 className="app-title ">Welcome to BlogBridges</h1>
-        <p className="headline-text">
+        <p className="headline-text mt-4">
         Whether you're an aspiring writer, seasoned blogger, or someone with a
         story to tell, BlogBridges is your gateway to a vibrant
         community of bloggers all around the world!
@@ -53,7 +53,7 @@ function Login() {
           }}
         />
         <button
-          className="btn primary-btn"
+          className="btn btn-primary"
           onClick={() => {
             login();
           }}
@@ -61,10 +61,11 @@ function Login() {
           Login
         </button>
       </div>
+      
       <p className="info-text">
         If you do not have an account{" "}
         <button
-          className="signup-login-switch-btn "
+          className="btn btn-outline-secondary "
           onClick={() => {
             toSignup();
           }}
@@ -73,6 +74,7 @@ function Login() {
           Signup
         </button>
       </p>
+
     </div>
   );
 }

@@ -1,0 +1,48 @@
+.signup-login-container {
+    margin-top: 3rem;
+    box-shadow: 0 0 0.625rem rgba(0, 0, 0, 0.2);
+    padding: 5rem 1rem;
+    background-color: #f4f4f4;
+ }
+
+.app-title {
+   font-size: 1.6rem;
+   text-align: center;
+   letter-spacing: 3px;
+   color: var(--clr-primary);    
+ }
+
+ .headline-text{
+   text-align: center;
+   line-height: 1.6;
+   letter-spacing: 1.9px;
+   font-size: var(--fs-text);
+ }
+
+ .headline-text span{
+   color: var(--clr-primary);
+ }
+
+ .input-button-container{
+   display:flex;
+   flex-direction: column;
+   gap:1rem;
+   align-items: center;
+ }
+
+ .signup-login-inputs{
+   padding: 1.5rem;
+ border: none;
+ width: 80%;
+ border-radius: 0.625rem;
+ box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1);
+ background-color: #ffffff;
+ background-color: var(--white-color);
+ }
+
+
+ .info-text{
+   text-align: center;
+   letter-spacing: 1px;
+   margin-top:2.5rem;
+}

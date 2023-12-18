@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import "bootstrap/dist/css/bootstrap.css";
 import './Styles/Base.css';
 import './Styles/BlogForm.css';
+import './Styles/Signup-Login.css'
 
 import App from './App';
 

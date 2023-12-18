@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 import backendUrl from "../configBackend";
+import { Button } from "react-bootstrap";
 
 function BlogList() {
   //-------- Use Effect-----------
@@ -94,13 +95,19 @@ function BlogList() {
           <p>{blog.text}</p>
           <p>By: {blog.author.email}</p>
           <p>Created at: {new Date(blog.createdAt).toLocaleString()}</p>
+
           {user._id === blog.author._id && (
-            <div>
-              <button onClick={() => handleEdit(blog._id)}>Edit</button>
-              <button onClick={() => handleDelete(blog._id)}>Delete</button>
-            </div>
+            <div className="d-flex gap-2"> {/* Bootstrap class to add space between buttons */}
+            <Button variant="primary" onClick={() => handleEdit(blog._id)}>
+              Edit
+            </Button>
+            <Button variant="danger" onClick={() => handleDelete(blog._id)}>
+              Delete
+            </Button>
+          </div>
           )}
         </div>
+        
       ))}
     </div>
   );

@@ -11,15 +11,19 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+/*------ Variables ------ */
+:root {
+    --fs-text: 1.1rem;
+    --fs-title: 1.5rem;
+    --main-bg-color: #f4f4f4;
+    --dark-color: #212427;
+    --white-color: #ffffff;
+    --danger-color: #e71c1c;
+    --primary-color: #2e5ca7ec;
+    --hover-primary-color: #1954b2ec;
+    
+  } 
 
-ul{
-  list-style-type: none;
-}
-
-::placeholder{
-  color: #6c757d;
-  font-size: 1rem;
-}
 
 /*----- Layouts ------*/
 .app-layout{
@@ -27,4 +31,14 @@ ul{
   margin: 0 auto;
   padding: 1.25rem;
   margin-top: 2rem;
+}
+
+/*----- Other -------*/
+ul{
+  list-style-type: none;
+}
+
+::placeholder{
+  color: #6c757d;
+  font-size: 1rem;
 }
